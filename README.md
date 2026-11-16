@@ -1,31 +1,98 @@
-# Forno & Fiamma
+# 🍕 Forno & Fiamma - Food Ordering Website
 
-A Next.js App Router rebuild of the Forno & Fiamma restaurant website. The former Vite/Base44 export has been replaced with a self-contained application.
+A modern, full-stack food ordering platform built for **Forno & Fiamma**, offering customers a convenient way to explore the menu and order their favorite food online. From delicious pizzas and traditional Karhai to rolls, Pepsi, chips, and more, the platform provides a smooth and user-friendly ordering experience with WhatsApp integration.
 
-## What is included
+## 🚀 Tech Stack
 
-The public site preserves the restaurant story, menu imagery, typography, navigation, and dark ember visual system while adding a persistent cart drawer, quantity controls, pickup/delivery selection, validated WhatsApp order handoff, client footprint capture, and lead enquiry form.
+- **Frontend:** Next.js
+- **Styling:** Custom CSS
+- **Database:** PostgreSQL
+- **ORM:** Prisma
+- **Backend:** Next.js Server-side APIs
+- **Order Integration:** WhatsApp
 
-The operational layer includes `/api/menu`, `/api/orders`, `/api/leads`, and `/api/footprint`, plus protected admin APIs for overview data and menu management. The superadmin interface lives at `/admin`, with `/admin/signup` for the first account and `/admin/login` for later access.
+## ✨ Key Features
 
-## Run locally
+### 🛒 Customer Website
+- Modern, responsive food ordering interface
+- Browse food categories and menu items
+- Explore pizzas, Karhai, rolls, chips, Pepsi, and more
+- View product details and pricing
+- Easy ordering experience
+- WhatsApp order integration
+- Mobile-friendly design
 
-1. Copy `.env.example` to `.env.local` and set `DATABASE_URL`, `AUTH_SECRET`, `PASSWORD_SALT`, and `SESSION_COOKIE_SECURE=false` for plain `http://localhost` development.
-2. Install dependencies with `npm install`.
-3. Provision the schema with `npm run db:push` and seed the menu with `npm run db:seed` when a MySQL connection is available.
-4. Start the app with `npm run dev`, then visit `/admin/signup` to create the first superadmin account.
+### ⚙️ Admin Dashboard
+- Centralized admin dashboard
+- Manage food products and categories
+- View and manage customer orders
+- Track order activity and status
+- Manage website content and menu items
+- Monitor overall ordering activity
 
-If no database URL is available, the public menu and the API routes use an in-process fallback so the interface can still be previewed. Production should always use a managed MySQL database for durable orders, leads, footprint data, menu changes, and admin accounts.
+### 📦 Order Management
+- Store orders in PostgreSQL
+- Manage customer and order information
+- Track order status and history
+- WhatsApp-based order communication
 
-## Vercel
+## 🗄️ Database & Architecture
 
-Import this repository into Vercel as a Next.js project. Add the variables from `.env.example` in the project settings, use a managed MySQL provider such as PlanetScale or Railway, run `npx prisma db push` against the production database, and run `npm run db:seed` once. The default Vercel build command is `npm run build`.
+The application uses **PostgreSQL** for reliable data storage and **Prisma ORM** for database management and type-safe queries.
 
-## API summary
+## 🛠️ Getting Started
 
-- `GET /api/menu` — active menu records.
-- `POST /api/orders` — validates items and customer details, persists the order, and returns a WhatsApp URL.
-- `POST /api/leads` — validates and stores customer enquiries.
-- `POST /api/footprint` — stores privacy-light visit and interaction events.
-- `POST /api/auth/signup`, `POST /api/auth/login`, `POST /api/auth/logout`, `GET /api/auth/me` — signed superadmin sessions.
-- `GET /api/admin/overview`, `GET|POST /api/admin/menu` — protected operations data and menu management.
+### 1. Clone the Repository
+
+```bash
+git clone <repository-url>
+cd forno-fiamma
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Configure Environment Variables
+
+Create a `.env` file in the project root:
+
+```env
+DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DATABASE"
+```
+
+### 4. Generate Prisma Client
+
+```bash
+npx prisma generate
+```
+
+### 5. Run Database Migrations
+
+```bash
+npx prisma migrate dev
+```
+
+### 6. Start Development Server
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## 📁 Project Highlights
+
+- Full-stack Next.js architecture
+- Custom CSS-based UI
+- PostgreSQL database integration
+- Prisma-powered database operations
+- WhatsApp ordering workflow
+- Dedicated admin dashboard
+- Responsive customer-facing website
+
+## 📌 Project
+
+**Forno & Fiamma** is built to simplify online food ordering while giving restaurant administrators an efficient way to manage products, customers, and orders from a centralized dashboard.
